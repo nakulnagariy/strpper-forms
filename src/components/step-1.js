@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { submitStep1 } from '../actions/action';
 import PropTypes from 'prop-types';
 
+import  TextFieldMargins  from './material-ui-components/input'
+
 
 class Step1 extends Component {
     constructor(props){
@@ -36,6 +38,7 @@ class Step1 extends Component {
     render () {
         return (
             <React.Fragment>
+                <TextFieldMargins />
                 <div className="input-group">
                     <label htmlFor="ownerTitle">Title:</label>
                     <select name="ownerTitle" id="ownerTitle" onChange={this.handleMe}>
@@ -45,8 +48,8 @@ class Step1 extends Component {
                     </select>
                 </div>
                 <div className="input-group">
-                    <label htmlFor="ownerName">Name:</label>
-                    <input type="text" id="ownerName" name = "ownerName" onChange={this.handleMe}/>
+                    
+                    <TextFieldMargins id="ownerName" label = "Name" name = "ownerName" defaultValue = "" onChange={this.handleMe}/>
                 </div>
                 <div className="input-group">
                     <label htmlFor="agreementDate">Agreement date:</label>
