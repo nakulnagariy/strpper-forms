@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Step1 from './components/step-1'
+import { Provider } from 'react-redux';
+import store from './store/store'
+import Step1 from './components/step-1';
+
 class App extends Component {
   render() {
     return (
-      <div>
+      <Provider store = {store}>
         <Step1 />
-      </div>
+      </Provider>
     );
   }
 }

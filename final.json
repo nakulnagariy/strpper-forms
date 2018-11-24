@@ -1,0 +1,17 @@
+{
+	"agreementForm": [{
+		"step1": {
+			"title": "mr",
+			"ownerName": "Nakul",
+			"agreementDate": "23-mar-1992",
+			"monthlyRent": 3000
+		}
+	}, {
+		"step2": {
+			"stampDuty": 50,
+			"offer": "xyz",
+			"contactNumber": "9023399123",
+			"emailId": "xyz@xyz.com"
+		}
+	}]
+}
