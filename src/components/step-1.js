@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { submitStep1 } from '../actions/action';
 import PropTypes from 'prop-types';
+import SearchAppBar from './material-ui-components/nav-bar';
+import  TextFieldMargins  from './material-ui-components/input'
 
+import { InputLabel, MenuItem, Select, Button   } from '@material-ui/core';
 
 class Step1 extends Component {
     constructor(props){
@@ -34,33 +37,42 @@ class Step1 extends Component {
     }
 
     render () {
+        const { classes } = this.props;
+
         return (
             <React.Fragment>
-                <div className="input-group">
-                    <label htmlFor="ownerTitle">Title:</label>
-                    <select name="ownerTitle" id="ownerTitle" onChange={this.handleMe}>
-                        <option value="mr" >Mr</option>
-                        <option value="ms">Ms</option>
-                        <option value="mrs">Mrs</option>
-                    </select>
-                </div>
-                <div className="input-group">
-                    <label htmlFor="ownerName">Name:</label>
-                    <input type="text" id="ownerName" name = "ownerName" onChange={this.handleMe}/>
-                </div>
-                <div className="input-group">
-                    <label htmlFor="agreementDate">Agreement date:</label>
-                    <input type="date" id="agreementDate" name="agreementDate" onChange={this.handleMe}/>
-                </div>
-                <div className="input-group">
-                    <label htmlFor="monthlyRent">Monthly rent:</label>
-                    <input type="number" id="monthlyRent" name="monthlyRent" onChange={this.handleMe}/>
-                </div>
-
-                <div className="input-group">
-                    <input type="button" id="submitStep1" name="submitStep1" value = "Submit" onClick={this.saveStep1}/>
-                </div>
-
+            <SearchAppBar />
+                <div style={{marginTop:30, marginLeft:30}}>
+                    <div direction="column" className="input-group">
+                        <Select
+                            value={this.state.ownerTitle}
+                            onChange={this.handleMe}
+                            inputProps={{
+                            name: 'ownerTitle',
+                            id: 'ownerTitle',
+                            }}
+                        >
+                            <MenuItem value="">
+                            <em>None</em>
+                            </MenuItem>
+                            <MenuItem value="mr">Mr</MenuItem>
+                            <MenuItem value="ms">Ms</MenuItem>
+                            <MenuItem value="mrs">Mrs</MenuItem>
+                        </Select>
+                    </div>
+                    <div direction="column" className="input-group">                 
+                        <TextFieldMargins id="ownerName" label = "Name" name = "ownerName" defaultValue = "" onChange={this.handleMe}/>
+                    </div>
+                    <div  direction="column" className="input-group">
+                        <TextFieldMargins type="date" label = "Agreement date:" id="agreementDate" name="agreementDate" onChange={this.handleMe}/>
+                    </div>
+                    <div  direction="column" className="input-group">
+                        <TextFieldMargins type="number" label = "Monthly rent:" id="monthlyRent" name="monthlyRent" onChange={this.handleMe}/>
+                    </div>
+                    <div direction="column" className="input-group">
+                        <Button variant="contained" color="secondary" type="button" id="submitStep1" name="submitStep1" value = "Submit" onClick={this.saveStep1}>Submit</Button>
+                    </div>
+                </div> 
             </React.Fragment>
         )
     }
