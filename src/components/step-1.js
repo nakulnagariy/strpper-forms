@@ -2,11 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { submitStep1 } from '../actions/action';
 import PropTypes from 'prop-types';
-import SearchAppBar from './material-ui-components/nav-bar';
-import  TextFieldMargins  from './material-ui-components/input'
-
-import { InputLabel, MenuItem, Select, Button   } from '@material-ui/core';
-
+import { Container, Col, Row, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 class Step1 extends Component {
     constructor(props){
         super(props);
@@ -41,38 +37,31 @@ class Step1 extends Component {
 
         return (
             <React.Fragment>
-            <SearchAppBar />
-                <div style={{marginTop:30, marginLeft:30}}>
-                    <div direction="column" className="input-group">
-                        <Select
-                            value={this.state.ownerTitle}
-                            onChange={this.handleMe}
-                            inputProps={{
-                            name: 'ownerTitle',
-                            id: 'ownerTitle',
-                            }}
-                        >
-                            <MenuItem value="">
-                            <em>None</em>
-                            </MenuItem>
-                            <MenuItem value="mr">Mr</MenuItem>
-                            <MenuItem value="ms">Ms</MenuItem>
-                            <MenuItem value="mrs">Mrs</MenuItem>
-                        </Select>
-                    </div>
-                    <div direction="column" className="input-group">                 
-                        <TextFieldMargins id="ownerName" label = "Name" name = "ownerName" defaultValue = "" onChange={this.handleMe}/>
-                    </div>
-                    <div  direction="column" className="input-group">
-                        <TextFieldMargins type="date" label = "Agreement date:" id="agreementDate" name="agreementDate" onChange={this.handleMe}/>
-                    </div>
-                    <div  direction="column" className="input-group">
-                        <TextFieldMargins type="number" label = "Monthly rent:" id="monthlyRent" name="monthlyRent" onChange={this.handleMe}/>
-                    </div>
-                    <div direction="column" className="input-group">
-                        <Button variant="contained" color="secondary" type="button" id="submitStep1" name="submitStep1" value = "Submit" onClick={this.saveStep1}>Submit</Button>
-                    </div>
-                </div> 
+                <Container>
+                    <Form>
+                        <FormGroup>
+                            <Label for="ownerTitle">Owner Title</Label>
+                            <Input type="select" name="ownerTitle" id="ownerTitle">
+                                <option value="mr">Mr</option>
+                                <option value="ms">Ms</option>
+                                <option value="mrs">Mrs</option>
+                            </Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="ownerName">Owner name</Label>
+                            <Input type="text" name="ownerName" id="ownerName" placeholder="Enter owner name here" onChange={this.handleMe} />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="agreementDate">Agreement date</Label>
+                            <Input type="date" name="agreementDate" id="agreementDate" placeholder="Enter agreement date here" onChange={this.handleMe} />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="monthlyRent">Monthly rent</Label>
+                            <Input type="text" name="monthlyRent" id="monthlyRent" placeholder="Enter monthly rent here" onChange={this.handleMe} />
+                        </FormGroup>
+                        <Button id="submitStep1" name="submitStep1" onClick={this.saveStep1}>Submit</Button>
+                    </Form>
+                </Container>
             </React.Fragment>
         )
     }
