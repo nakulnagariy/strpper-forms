@@ -4,6 +4,9 @@ import { submitStep1 } from '../../actions/action';
 import PropTypes from 'prop-types';
 import { Container, Col, Row, Button, Form, FormGroup, Label, Input, FormText, InputGroup, ButtonGroup, InputGroupAddon, InputGroupText  } from 'reactstrap';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import Pikaday from 'pikaday';
+import Moment from 'moment'
+
 class Step1 extends Component {
     constructor(props){
         super(props);
@@ -18,6 +21,18 @@ class Step1 extends Component {
         this.saveStep1 = this.saveStep1.bind(this);
         this.toggle = this.toggle.bind(this);
     }
+
+    componentDidMount() {
+        var picker = new Pikaday({
+            field: document.getElementById('agreementDate'),
+            format: 'DD/MM/YYYY',
+            onSelect: function() {
+                console.log(this.getMoment().format('DD/MM/YYYY'));
+            }
+        });
+    }
+
+    
 
     handleMe(e) {
         this.setState({
@@ -163,7 +178,7 @@ class Step1 extends Component {
                         <Col md="5"> 
                             <FormGroup>
                                 <Label for="agreementDate">Agreement date</Label>
-                                <Input type="date" name="agreementDate" id="agreementDate" placeholder="Enter agreement date here" onChange={this.handleMe} />
+                                <Input type="text" name="agreementDate" id="agreementDate" placeholder="Enter agreement date here"  />
                             </FormGroup>                           
 
                             <FormGroup>
@@ -178,7 +193,7 @@ class Step1 extends Component {
                         </Col>
                     </Row>
                     <Row className="mt-5">
-                        <Col md="3">
+                        <Col md="4">
                             <Button id="submitStep1" className="btn btn-danger btn-block" name="submitStep1" onClick={this.toggle}>Next</Button>
                         </Col>
                     </Row>
