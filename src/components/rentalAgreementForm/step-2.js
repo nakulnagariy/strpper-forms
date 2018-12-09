@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { submitStep1 } from '../../actions/action';
+import { saveSecondStep } from '../../actions/action';
 import PropTypes from 'prop-types';
 import { Container, Col, Row, Button, Form, FormGroup, Label, Input, FormText, InputGroup, ButtonGroup, InputGroupAddon, InputGroupText  } from 'reactstrap';
 

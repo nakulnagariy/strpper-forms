@@ -1,9 +1,16 @@
-import { SAVE_STEP_1, SAVE_STEP_2 } from './type'; 
+import { SAVE_FIRST_STEP, SAVE_SECOND_STEP } from './type'; 
 
 // ACTION CRETORS
-export const submitStep1 = (data) => (dispatch) => {
+export const saveFirstStep = (data) => (dispatch) => {
     dispatch({
-        type: SAVE_STEP_1,
+        type: SAVE_FIRST_STEP,
+        payload: data
+    })
+}
+
+export const saveSecondStep = (data) => (dispatch) => {
+    dispatch({
+        type: SAVE_SECOND_STEP,
         payload: data
     })
 }
