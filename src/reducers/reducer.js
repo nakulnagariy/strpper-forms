@@ -1,21 +1,19 @@
-import { SAVE_STEP_1, SAVE_STEP_2 } from '../actions/type';
+import { SAVE_FIRST_STEP, SAVE_SECOND_STEP } from '../actions/type';
 
-const initialState = {
-    agreementForm: []
-}
+const initialState = {}
 
 // Step 2 Reducer: state n action
 export default (state = initialState, action) => {
     switch(action.type) {
-        case SAVE_STEP_1:
+        case SAVE_FIRST_STEP:
             return {
                 ...state,
-                agreementForm: action.payload
+                firstStepDetails: action.payload
             };
-        case SAVE_STEP_2:
+        case SAVE_SECOND_STEP:
             return {
                 ...state,
-                agreementForm: action.payload
+                secondStepDetails: action.payload
             };
         default:
             return state;    

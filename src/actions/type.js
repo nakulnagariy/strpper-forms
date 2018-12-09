@@ -1,2 +1,2 @@
-export const SAVE_STEP_1 = "SAVE_STEP_1";
-export const SAVE_STEP_2 = "SAVE_STEP_2";
+export const SAVE_FIRST_STEP = "SAVE_FIRST_STEP";
+export const SAVE_SECOND_STEP = "SAVE_SECOND_STEP";

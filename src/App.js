@@ -5,7 +5,6 @@ import Header from './components/header/header'
 import Footer from './components/footer/footer'
 import Step1 from './components/rentalAgreementForm/step-1';
 
-
 class App extends Component {
   render() {
     return (
