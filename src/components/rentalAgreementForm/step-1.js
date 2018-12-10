@@ -89,9 +89,7 @@ class Step1 extends Component {
             agreementDate: this.state.agreementDate,
             propertyDetailsFixtures: this.state.propertyDetailsFixtures,
             other: this.state.other
-        }
-
-        
+        }    
         this.props.saveFirstStep(data);
     }
 
@@ -241,7 +239,6 @@ class Step1 extends Component {
                             <Button id="submitStep1" className="btn btn-danger btn-block" name="submitStep1" onClick={this.saveStep1}>Next</Button>
                         </Col>
                     </Row>
-
                 </Container>
             </React.Fragment>
         )
