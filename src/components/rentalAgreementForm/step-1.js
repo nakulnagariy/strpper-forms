@@ -6,6 +6,7 @@ import { Container, Col, Row, Button, Form, FormGroup, Label, Input, FormText, I
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Pikaday from 'pikaday';
 import Moment from 'moment';
+import './form.scss'
 
 class Step1 extends Component {
     constructor(props){
@@ -89,9 +90,7 @@ class Step1 extends Component {
             agreementDate: this.state.agreementDate,
             propertyDetailsFixtures: this.state.propertyDetailsFixtures,
             other: this.state.other
-        }
-
-        
+        }    
         this.props.saveFirstStep(data);
     }
 
@@ -113,7 +112,7 @@ class Step1 extends Component {
                                         <Col md="5">
                                             <div className="tenantDetailsContainer">
                                                 <FormGroup>                                    
-                                                    <h4>Tenant details</h4>
+                                                    <h4 className="primary">Tenant details</h4>
                                                     <Label>Tenant title</Label><br/>
                                                     <ButtonGroup>
                                                         <Button color="primary" value="Mr" name="tenantTitle" onClick={() => this.onRadioBtnClick("Mr", "tenantTitle")} active={this.state.tenantTitle === "Mr"}>Mr</Button>
@@ -241,7 +240,6 @@ class Step1 extends Component {
                             <Button id="submitStep1" className="btn btn-danger btn-block" name="submitStep1" onClick={this.saveStep1}>Next</Button>
                         </Col>
                     </Row>
-
                 </Container>
             </React.Fragment>
         )
