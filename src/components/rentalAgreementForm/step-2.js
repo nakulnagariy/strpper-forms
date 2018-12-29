@@ -37,7 +37,7 @@ class Step2 extends Component {
             [stateProp]: value,
          });
 
-         console.log(store.getState().reducer.firstStepDetails.tenantTitle)
+         console.log(store.getState().reducermstsce)
     }
 
     saveStep2(e) {
