@@ -1,47 +1,146 @@
 import React from "react";
-import { Col, Container, Row } from "reactstrap";
+import { Link } from "react-router-dom";
 
-class Footer extends React.Component {
-render() {
-return (
-<div color="light" className="font-small pt-4 mt-4">
-  <Container fluid className="text-center text-md-left">
-    <Row>
-      <Col md="6">
-      <h5 className="title">Footer Content</h5>
-      <p>
-        Here you can use rows and columns here to organize your footer
-        content.
-      </p>
-      </Col>
-      <Col md="6">
-      <h5 className="title">Links</h5>
-      <ul>
-        <li className="list-unstyled">
-          <a href="#!">Link 1</a>
-        </li>
-        <li className="list-unstyled">
-          <a href="#!">Link 2</a>
-        </li>
-        <li className="list-unstyled">
-          <a href="#!">Link 3</a>
-        </li>
-        <li className="list-unstyled">
-          <a href="#!">Link 4</a>
-        </li>
-      </ul>
-      </Col>
-    </Row>
-  </Container>
-  <div className="footer-copyright text-center py-3">
-    <Container fluid>
-      &copy; {new Date().getFullYear()} Copyright:{" "}
-      <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
-    </Container>
-  </div>
-</div>
+const Footer = () => (
+  <React.Fragment>
+    <footer className="container py-5">
+      <div className="row">
+        <div className="col-12 col-md">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="d-block mb-2"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="14.31" y1="8" x2="20.05" y2="17.94" />
+            <line x1="9.69" y1="8" x2="21.17" y2="8" />
+            <line x1="7.38" y1="12" x2="13.12" y2="2.06" />
+            <line x1="9.69" y1="16" x2="3.95" y2="6.06" />
+            <line x1="14.31" y1="16" x2="2.83" y2="16" />
+            <line x1="16.62" y1="12" x2="10.88" y2="21.94" />
+          </svg>
+          <small className="d-block mb-3 text-muted">© 2017-2018</small>
+        </div>
+        <div className="col-6 col-md">
+          <h5>Features</h5>
+          <ul className="list-unstyled text-small">
+            <li>
+              <Link className="text-muted" to="#">
+                Cool stuff
+              </Link>
+            </li>
+            <li>
+              <Link className="text-muted" to="#">
+                Random feature
+              </Link>
+            </li>
+            <li>
+              <Link className="text-muted" to="#">
+                Team feature
+              </Link>
+            </li>
+            <li>
+              <Link className="text-muted" to="#">
+                Stuff for developers
+              </Link>
+            </li>
+            <li>
+              <Link className="text-muted" to="#">
+                Another one
+              </Link>
+            </li>
+            <li>
+              <Link className="text-muted" to="#">
+                Last time
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="col-6 col-md">
+          <h5>Resources</h5>
+          <ul className="list-unstyled text-small">
+            <li>
+              <Link className="text-muted" to="#">
+                Resource
+              </Link>
+            </li>
+            <li>
+              <Link className="text-muted" to="#">
+                Resource name
+              </Link>
+            </li>
+            <li>
+              <Link className="text-muted" to="#">
+                Another resource
+              </Link>
+            </li>
+            <li>
+              <Link className="text-muted" to="#">
+                Final resource
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="col-6 col-md">
+          <h5>Resources</h5>
+          <ul className="list-unstyled text-small">
+            <li>
+              <Link className="text-muted" to="#">
+                Business
+              </Link>
+            </li>
+            <li>
+              <Link className="text-muted" to="#">
+                Education
+              </Link>
+            </li>
+            <li>
+              <Link className="text-muted" to="#">
+                Government
+              </Link>
+            </li>
+            <li>
+              <Link className="text-muted" to="#">
+                Gaming
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="col-6 col-md">
+          <h5>About</h5>
+          <ul className="list-unstyled text-small">
+            <li>
+              <Link className="text-muted" to="#">
+                Team
+              </Link>
+            </li>
+            <li>
+              <Link className="text-muted" to="#">
+                Locations
+              </Link>
+            </li>
+            <li>
+              <Link className="text-muted" to="#">
+                Privacy
+              </Link>
+            </li>
+            <li>
+              <Link className="text-muted" to="#">
+                Terms
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </React.Fragment>
 );
-}
-}
 
 export default Footer;

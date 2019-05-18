@@ -6,6 +6,9 @@ import { Container, Col, Row, Button, Form, FormGroup, Label, Input, FormText, I
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Pikaday from 'pikaday';
 import Moment from 'moment';
+import { SAVE_FIRST_STEP, SAVE_SECOND_STEP } from '../../actions/type';
+import RadioButtonGroup from '../FormComponents/buttons/radioButtonGroup'
+import TextInput from '../FormComponents/textInput'
 import './form.scss'
 
 class Step1 extends Component {
@@ -30,13 +33,15 @@ class Step1 extends Component {
             propertyDetailsFixtures: "",
             other: "",
             modal: false,
-            collapse: false
+            collapse: false,
+            errInOwnerName: false
         }
-        this.handleMe = this.handleMe.bind(this);
-        this.saveStep1 = this.saveStep1.bind(this);
-        this.toggle = this.toggle.bind(this);
-        this.collapse = this.collapse.bind(this);
-        this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
+
+        // this.handleMe = this.handleMe.bind(this);
+        // this.saveStep1 = this.saveStep1.bind(this);
+        // this.toggle = this.toggle.bind(this);
+        // this.collapse = this.collapse.bind(this);
+        // this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
     }
 
     componentDidMount() {
@@ -49,29 +54,33 @@ class Step1 extends Component {
         });
     }
 
-    handleMe(e) {
+    handleMe = (e) => {
         this.setState({
             [e.target.name]: e.target.value,
         })
     }
 
-    toggle(e) {
+    toggle = (e) => {
         this.setState({
           modal: !this.state.modal
         });
       }
 
-    collapse(e){
-        this.setState({ collapse: !this.state.collapse });
+    collapse = (e) => {
+        e.preventDefault();
+        this.setState((nextState, props)=>{
+            console.log(props);
+            return {collapse: !nextState.collapse }
+        })
     }
 
-    onRadioBtnClick(value, stateProp) {
+    onRadioBtnClick = (value, stateProp) => {
         this.setState({ 
             [stateProp]: value,
          });
     }
 
-    saveStep1(e) {
+    saveStep1 = (e) => {
         const data = {
             tenantTitle: this.state.tenantTitle,
             tenantName: this.state.tenantName,
@@ -94,19 +103,29 @@ class Step1 extends Component {
         this.props.saveFirstStep(data);
     }
 
+    test = (e) => {
+        // alert(e.target.value)
+    }
+
+    handleName = (e) => {
+        if(e.target.value.trim() === "") {
+            this.setState({
+                errInOwnerName : true
+            })
+        }
+    }
+
     render () {
         return (
             <React.Fragment>
                 <Container fluid={true} className="bg-light">
                     <Container>
-                        <Col>
-                            <Row>
-                                <div style={{padding:20}}>                                
-                                    <span>Enter your owner &amp; Tenant details here by clicking on the <strong>Edit</strong> button.</span>&nbsp;
-                                    <Button color="secondary" className="ghost pull-right" onClick={this.collapse}>Edit</Button>
-                                </div>
-                            </Row>
-                        </Col>
+                    <div className="ownerTenantDetailsContainer p-a-4">
+                        <div className="row">
+                            <div className="col-md-10">Enter your owner &amp; Tenant details here by clicking on the <strong>Edit</strong> button.</div>
+                            <div className="col-md-2"><button className="btn btn-primary" onClick={this.collapse}>Edit</button></div>
+                        </div>
+                    </div>
                         <Collapse isOpen={this.state.collapse}>
                                     <Row>
                                         <Col md="5">
@@ -250,5 +269,24 @@ Step1.propTypes = {
     saveFirstStep: PropTypes.func.isRequired
 }
 
+const mapStateToProps = (state) => {
+    return {
+        firstStepState: state
+    };
+};
 
-export default connect(null, { saveFirstStep })(Step1)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        saveFirstStep: (data) => dispatch({
+            type: SAVE_FIRST_STEP,
+            payload: data
+        })
+    };
+};
+
+
+// @param  connect(mapStateToProps, mapDispatchToProp)(component)
+export default connect(
+    mapStateToProps, 
+    mapDispatchToProps
+    )(Step1)
