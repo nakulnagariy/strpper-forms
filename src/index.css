@@ -1,14 +1,387 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* @import url(https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,900);
+@import url(/public/fonts/Condensed\ Bold.ttf);
+@import url(/public/fonts/GillSans.ttc); */
+
+:root {
+  --theme-color: #ffc0cbd9;
+}
+
+
+.article, .root, body, html {
+  font-family: 'GillSans', cursive;
+  color: white;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.site-header {
+  background-color: rgba(0, 0, 0, 0.85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header a {
+  color: #999;
+  transition: ease-in-out color 0.15s;
+}
+.site-header a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.bodyContent {
+  min-height: 100vh;
+}
+.input-group-alert select {
+  border-color: #dd2c35;
+}
+
+
+.chefCardDeck {
+  -webkit-box-orient: horizontal;
+  -ms-flex-flow: row;
+  flex-flow: row;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-flex-flow: row wrap;
+  justify-content: space-between;
+
+}
+
+
+.chefChoiceCardWrapper {
+  background: white;
+  color: #333;
+  box-shadow: 2px 15px 30px 1px #0000008c;
+  justify-content: flex-start;
+  align-items: flex-start;
+  vertical-align: middle;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 0px;
+  flex: 1 0 0;
+  margin-top: 0;
+  -webkit-box-orient: vertical;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-width: 360px;
+}
+
+
+
+
+.recipeImgWrapper {
+  position: relative;
+}
+
+.recipeImgWrapper .membersLogo img{
+  position: absolute;
+  top:-50px;
+  right: 20px;
+  width: 100px;
+}
+
+.recipeImgWrapper .serviceRating{
+  position: absolute;
+  box-sizing: border-box;
+  top:0;
+  left: 0;
+  width: 100px;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+
+.recipeImgWrapper img.recipeActionBtn {
+  position: absolute;
+  box-sizing: border-box;
+  bottom:0;
+  right: 0;
+  width: 70px;
+}
+
+.chefChoiceCardWrapper .recipeDesWrapper {
+  padding: 1rem;
+}
+
+.mapWrapper .googleMap{
+  position: relative;
+}
+
+.mapWrapper .address{
+  position: absolute;
+  font-size: 2rem;
+  color: #333;
+  z-index: 99;
+  background: white;
+  box-sizing: border-box;
+  width: auto;
+  top: 50px;
+  left: 200px;
+  padding: 1.2rem;
+}
+
+.mapWrapper .address h1{
+  position: absolute;
+  top: -30px;
+  font-size: 2.5rem;
+  text-align: center;
+  color: black;
+}
+
+.bannerBg {
+  position: relative;
+}
+
+.bannerBg .gourmentLogo img {
+  position: absolute;
+  top: 5rem;
+  left: 25rem;
+  width: 150px;
+}
+
+.baanerText {
+  text-align: center;
+  top: 17rem;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.baanerText p {
+  line-height: 0.9; 
+  font-weight: 700;
+  color: white;
+  font-stretch: expanded;
+  font-size: 4rem;
+}
+
+
+.baanerText .strech {
+  letter-spacing: 8px;
+  font-size: 5rem;
+}
+
+.baanerText .third {
+  font-size: 2.5rem;
+}
+
+.sectionsHeading p {
+  line-height: 0.9; 
+  font-weight: 700;
+  color: black;
+  font-stretch: expanded;
+  font-size: 1.5rem;
+}
+
+.sectionsHeading .stripeText {
+  letter-spacing: 8px;
+  font-size: 2rem;
+}
+
+.sectionsHeading .stripeText {
+  line-height: 0.5;
+}
+.sectionsHeading .stripeText span {
+  display: inline-block;
+  position: relative;  
+}
+
+.sectionsHeading .stripeText span:after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  height: 5px;
+  border-top: 5px solid var(--theme-color);
+  top: 8px;
+  width: 200px;
+}
+.sectionsHeading .stripeText span:after {
+  left: -15px;
+}
+
+
+.collabroteBg {
+  background: var(--theme-color);
+}
+
+.collabroteHeading p {
+  line-height: 0.9; 
+  font-weight: 700;
+  color: black;
+  font-stretch: expanded;
+  font-size: 1.5rem;
+}
+
+.collabroteHeading .stripeText {
+  letter-spacing: 6px;
+  font-size: 2rem;
+}
+
+.collabroteHeading .stripeText {
+  line-height: 0.5;
+}
+.collabroteHeading .stripeText span {
+  display: inline-block;
+  position: relative;  
+}
+
+.collabroteHeading .stripeText span:after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  height: 5px;
+  border-top: 5px solid white;
+  top: 8px;
+  width: 200px;
+}
+
+.collabroteHeading .stripeText span:after {
+  left: -15px;
+}
+
+
+.meetOurHeading p {
+  line-height: 1.4; 
+  font-weight: 700;
+  color: black;
+  font-stretch: expanded;
+  font-size: 1rem;
+}
+
+.meetOurHeading .popularHeading {
+  font-size: 2.5rem;
+}
+
+.meetOurHeading .stripeText {
+  letter-spacing: 6px;
+  font-size: 2rem;
+}
+
+.meetOurHeading .stripeText {
+  line-height: 0.5;
+}
+.meetOurHeading .stripeText span {
+  display: inline-block;
+  position: relative;  
+}
+
+.meetOurHeading .stripeText span:after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  height: 5px;
+  border-top: 5px solid var(--theme-color);
+  top: 8px;
+  width: 280px;
+}
+
+.meetOurHeading .stripeText span:after {
+  left: -15px;
+}
+
+
+
+.btn-fancy {
+  background-color: var(--theme-color) !important;
+  color: #333;
+  border: none;
+  border-radius: 0 !important;
+}
+
+.btn-fancy-ghost {
+  background-color: transparent !important;
+  color: #333;
+  border: 2px solid var(--theme-color) !important;
+  border-radius: 0 !important;
+}
+
+.fancy-input input, .fancy-input select {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border-bottom: 2px solid #333 !important;
+}
+
+.bg-black {
+  background: black !important;
+  color: white !important;
+}
+
+.MenuSectionWrapper {
+  background: #dddddd2e;
+}
+
+ .fancy-column:after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  background: gray;
+  top: -144px;
+  right: 0;
+  width: 2px;
+  height: 134%;
+  overflow: visible;
+  z-index: 9;
+}
+
+.fancy-heading {
+  margin-left: -25px;
+}
+
+.bg-white {
+  background: white !important;
+} 
+
+.meetCommunityCard .cardImg, .meetCommunityBuzzCard {
+  position: relative;
+  padding: 15px;
+  border-radius: 0;
+  box-shadow: 2px 15px 30px 1px #0000008c;
+  min-height: 255px;
+  max-height: 256px;
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+  justify-content: center;
+}
+
+.meetCommunityNormalCard {
+  position: relative;
+  padding: 15px;
+  border-radius: 0;
+  min-height: 255px;
+  max-height: 256px;
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+  justify-content: center;
+}
+
+
+.meetCommunityCard .cardImg .instaLogo {
+  position: absolute;
+  box-sizing: border-box;
+  top:0;
+  right: 0;
+  width: 70px;
+}
+
+button:focus, .btn:focus {
+  box-shadow: none !important;
 }

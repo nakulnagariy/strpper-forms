@@ -1,5 +1,28 @@
-body{
-    .primary {
-        background-color: #fff;
+.pika-lendar{
+    width: 320px !important;
+    th{
+        color: #000 !important;
+    }
+    td{
+        .pika-button{
+            line-height: 24px;
+            border-radius: 0;
+            text-align: center;
+            &:hover{
+                background: #4054b8;
+            }
+        }
+        &.is-today{
+            .pika-button{
+                background: #596dd4;
+                color: #fff;
+            }
+        }
+        &.is-selected{
+            .pika-button{
+                background: #e62e43; 
+                box-shadow: none;
+            }
+        }
     }
 }

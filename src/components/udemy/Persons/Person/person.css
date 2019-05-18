@@ -1,0 +1,28 @@
+.person {
+    box-sizing: border-box;
+    width: 60%;
+    padding: 20px;
+    margin: 16px auto;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    text-align: center;
+}
+
+.person-btn {
+    border-radius: 0px;
+    cursor: pointer;
+    background: green;
+    color: aliceblue;
+    padding: 10px;
+    border: 1px solid blue;
+}
+
+.person-btn:hover {
+    background: aliceblue;
+    color: green;
+}
+
+.person input {
+    padding: 5px;
+    font-size: 20px;
+}
