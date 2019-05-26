@@ -1,0 +1,11 @@
+{
+    "javascript.format.insertSpaceAfterConstructor": true,
+    "typescript.validate.enable": false,
+    "html.format.preserveNewLines": false,
+    "html.format.enable": false,
+    "html.autoClosingTags": false,
+    "html.validate.styles": false,
+    "html.validate.scripts": false,
+    "prettier.alignObjectProperties": true,
+    "prettier.arrayExpand": true
+}
