@@ -9,17 +9,17 @@ import AuthContext from './context/auth-context';
 import "./Persons/Person/person.css";
 
 class App extends Component {
-    constructor(props){
+    constructor (props) {
         super(props)
         console.log('[app.js] constructor');
     }
 
     state = {
         persons: [
-            {id: "geer", name: "max", age: 28},
-            {id: "gedsr", name: "maxmillian !", age: 23},
-            {id: "gegr", name: "maxi...", age: 26},
-            {id: "sdf", name: "ravii...", age: 34},
+            { id: "geer", name: "max", age: 28 },
+            { id: "gedsr", name: "maxmillian !", age: 23 },
+            { id: "gegr", name: "maxi...", age: 26 },
+            { id: "sdf", name: "ravii...", age: 34 },
         ],
         otherstate: "some other value",
         showPerson: false,
@@ -29,21 +29,21 @@ class App extends Component {
     static getDerivedStateFromProps(props, state = this.state) {
         console.log('[app.js] getDerivedStateFromProps', props);
         return state;
-      }
+    }
 
     componentDidMount() {
-      console.log('[app.js] componentDidMount');
+        console.log('[app.js] componentDidMount');
     }
-    
+
     shouldComponentUpdate(nextProps, nextState) {
-      console.log('[app.js] shouldComponentUpdate');
-      return true;
+        console.log('[app.js] shouldComponentUpdate');
+        return true;
     }
-    
+
     getSnapshotBeforeUpdate(prevProps, prevState) {
-        return {message: 'this is from getSnapshotBeforeUpdate'}
+        return { message: 'this is from getSnapshotBeforeUpdate' }
     }
-    
+
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('[app.js] componentDidUpdate', snapshot);
@@ -60,17 +60,17 @@ class App extends Component {
 
         // const person = Object.assign({}, this.state.persons[personIndex]);
         // old way of doing this, instead go with spread operator
-        
+
         person.name = e.target.value;
         const persons = [...this.state.persons];
         persons[personIndex] = person;
 
-        this.setState({persons: persons})
+        this.setState({ persons: persons })
     }
 
     togglePerson = () => {
         this.setState((prevState) => {
-            return {showPerson: !prevState.showPerson}
+            return { showPerson: !prevState.showPerson }
         })
     }
 
@@ -79,40 +79,41 @@ class App extends Component {
         // adding slice on persons can give you the new array but this approce is not advisable and has a bad impact
         const persons = [...this.state.persons];
         persons.splice(personIndex, 1);
-        this.setState({persons: persons})
+        this.setState({ persons: persons })
     }
 
     loginHandler = () => {
-        this.setState({authenticated: true})
+        this.setState({ authenticated: true })
     }
 
     render() {
         let person = null;
         console.log('[app.js] rendering....');
-        if(this.state.showPerson) {
+        if (this.state.showPerson) {
             person = [...this.state.persons]
             person = (
-                <div>                    
-                    <Persons 
-                        changedEvent = {this.nameChangedHandler} 
-                        clickEvent = {this.deletePersonHandler}
+                <div>
+                    <Persons
+                        changedEvent={this.nameChangedHandler}
+                        clickEvent={this.deletePersonHandler}
                         persons={person}
                         isAuthenticated={this.state.authenticated}
                     />
                 </div>
-            )    
+            )
         }
         return (
             <Aux>
-                <AuthContext.Provider value={{authenticated: this.state.authenticated, login: this.loginHandler}}>
-                    <Cockpit 
+                <AuthContext.Provider value={{ authenticated: this.state.authenticated, login: this.loginHandler }}>
+                    <Cockpit
                         title="Person Managaer, This practical is from Udemy course on React!..."
                         personsLength={this.state.persons.length}
                         click={this.togglePerson}
-                        login={this.loginHandler}></Cockpit>
+                        login={this.loginHandler}>
+                    </Cockpit>
 
-                    {person}   
-                </AuthContext.Provider>     
+                    {person}
+                </AuthContext.Provider>
             </Aux>
         );
     }

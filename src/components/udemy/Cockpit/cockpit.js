@@ -5,7 +5,7 @@ import './cockpit.css'
 const cockpit = (props) => {
 
   const toggleBtnRef = useRef(null);
-  
+
   const authContext = useContext(AuthContext);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const cockpit = (props) => {
     // setTimeout(() => {
     //   alert('saved data on cloud');
     // }, 1000);
-    
+
     toggleBtnRef.current.click();
 
     return () => {
@@ -31,25 +31,25 @@ const cockpit = (props) => {
     console.log('[cockpit.js] 2nd useEffect');
   })
 
-    const assginedClasses = [];
-    if(props.personsLength <= 2) {
-        assginedClasses.push('red');
-    }
-    if(props.personsLength <= 1) {
-        assginedClasses.push('bold');
-    }
+  const assginedClasses = [];
+  if (props.personsLength <= 2) {
+    assginedClasses.push('red');
+  }
+  if (props.personsLength <= 1) {
+    assginedClasses.push('bold');
+  }
 
   return (
     <div className="cockpit">
       <h1 className="my-4">{props.title}</h1>
-      <p className={assginedClasses.join( ' ' )}>This is really working...</p>
-      <button 
+      <p className={assginedClasses.join(' ')}>This is really working...</p>
+      <button
         ref={toggleBtnRef}
-        className="btn btn-lg btn-primary mr-2" 
+        className="btn btn-lg btn-primary mr-2"
         onClick={props.click}>
         Toggle Person
       </button>
-      <button 
+      <button
         onClick={authContext.login}
         className="btn btn-lg btn-dark-ghost">Log in</button>
     </div>
