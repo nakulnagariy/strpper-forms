@@ -1,5 +1,5 @@
 // import React, { Component, lazy, Suspense } from 'react';
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from './store/store';
 import { BrowserRouter as Router } from 'react-router-dom'
@@ -10,11 +10,11 @@ import Main from './components/routing/mainNavRouting'
 class App extends Component {
   render() {
     return (
-      <Provider store = {store}>
+      <Provider store={store}>
         <React.Fragment>
           <Router>
             <React.Fragment>
-              <Header />
+              <Header isAuth={true} />
               <Main />
               <Footer />
             </React.Fragment>
