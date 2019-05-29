@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Header = () => (
+const Header = (props) => (
   <React.Fragment>
     <nav className="site-header sticky-top py-1">
       <div className="container d-flex flex-column flex-md-row justify-content-between">
@@ -48,6 +48,9 @@ const Header = () => (
         <Link className="py-2 d-none d-md-inline-block" to="/contactus">
           Contact Us
         </Link>
+        {props.isAuth ? <Link className="py-2 d-none d-md-inline-block" to="/login">
+          Log in
+        </Link> : ""}
       </div>
     </nav>
   </React.Fragment>

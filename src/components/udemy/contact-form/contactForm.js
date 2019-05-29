@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import Input from '../../UI/input/input'
+import Input from '../../UI/input/input';
+import Spinner from '../../UI/spinner/spinner';
 
 class ContactForm extends Component {
     state = {
         orderForm: {
             name: {
                 elementType: 'input',
+                displayLabel: 'Name',
                 elementConfig: {
                     type: 'text',
                     placeholder: 'Enter your name'
@@ -19,6 +21,7 @@ class ContactForm extends Component {
             },
             street: {
                 elementType: 'input',
+                displayLabel: 'Street name',
                 elementConfig: {
                     type: 'text',
                     placeholder: 'Enter your street address'
@@ -32,6 +35,7 @@ class ContactForm extends Component {
             },
             zipcode: {
                 elementType: 'input',
+                displayLabel: 'Zipcode',
                 elementConfig: {
                     type: 'number',
                     placeholder: 'Enter your zipcode'
@@ -47,6 +51,7 @@ class ContactForm extends Component {
             },
             country: {
                 elementType: 'input',
+                displayLabel: 'Country',
                 elementConfig: {
                     type: 'text',
                     placeholder: 'Enter your country'
@@ -60,6 +65,7 @@ class ContactForm extends Component {
             },
             email: {
                 elementType: 'input',
+                displayLabel: 'Email',
                 elementConfig: {
                     type: 'email',
                     placeholder: 'Enter your email'
@@ -73,6 +79,7 @@ class ContactForm extends Component {
             },
             deliveryMethod: {
                 elementType: 'select',
+                displayLabel: 'Delivery method',
                 elementConfig: {
                     options: [
                         { value: 'fastest', displayValue: 'Fastest' },
@@ -84,10 +91,44 @@ class ContactForm extends Component {
                 validation: {
                     required: false,
                 }
+            },
+            checkBoxBtnGrp: {
+                elementType: 'checkboxBtnGrp',
+                displayLabel: 'Checkbox button grp',
+                elementConfig: {
+                    options: [
+                        { id: "f1", value: 'fastest', displayValue: 'Fastest', defaultChecked: true },
+                        { id: "c1", value: 'cheapest', displayValue: 'Cheapest' },
+                    ]
+                },
+                value: 'fastest',
+                valid: true,
+                validation: {
+                    required: true,
+                }
+            },
+            checkBox: {
+                elementType: 'checkbox',
+                displayLabel: 'Checkbox',
+                elementConfig: {
+                    options: [
+                        { id: "f11", value: 'fastest', displayValue: (<p>Fastest</p>), defaultChecked: true },
+                        { id: "c11", value: 'cheapest', displayValue: (<p>Cheapest</p>) },
+                    ]
+                },
+                value: 'fastest',
+                valid: true,
+                validation: {
+                    required: true,
+                }
             }
         },
         formIsValid: false,
         loading: false
+    }
+
+    componentDidMount() {
+        this.setState({ loading: false })
     }
 
     handleChange = (e, inputIdentifier) => {
@@ -153,7 +194,7 @@ class ContactForm extends Component {
                 {formElementsArray.map((formElement) =>
                     <Input
                         key={formElement.id}
-                        label={formElement.id}
+                        label={formElement.config.displayLabel}
                         elementType={formElement.config.elementType}
                         elementConfig={formElement.config.elementConfig}
                         value={formElement.config.value}
@@ -169,8 +210,12 @@ class ContactForm extends Component {
         )
 
         if (this.state.loading) {
-            form = (<h1>Loading</h1>)
+            form = <Spinner />
         }
+
+        // if (this.state.formIsValid) {
+        //     form = (<h1>Thank you!</h1>)
+        // }
 
 
 
