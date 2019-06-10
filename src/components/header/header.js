@@ -27,8 +27,8 @@ const Header = (props) => (
             <line x1="16.62" y1="12" x2="10.88" y2="21.94" />
           </svg>
         </Link>
-        <Link className="py-2 d-none d-md-inline-block" to="/home">
-          Home
+        <Link className="py-2 d-none d-md-inline-block" to="/charts">
+          Charts
         </Link>
         <Link className="py-2 d-none d-md-inline-block" to="/details">
           Details
@@ -47,6 +47,9 @@ const Header = (props) => (
         </Link>
         <Link className="py-2 d-none d-md-inline-block" to="/contactus">
           Contact Us
+        </Link>
+        <Link className="py-2 d-none d-md-inline-block" to="/formik-form">
+          Formik Form
         </Link>
         {props.isAuth ? <Link className="py-2 d-none d-md-inline-block" to="/login">
           Log in

@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux';
-import reducer from './reducer';
+import formReducer from './reducer';
+import formikReducer from './formik-reducer'
 
-export default combineReducers({
-    reducer
-})
+const rootReducer = combineReducers({
+    formReducer: formReducer,
+    formikReducer: formikReducer
+});
+
+export default rootReducer;
