@@ -3,19 +3,21 @@ import { SAVE_FIRST_STEP, SAVE_SECOND_STEP } from '../actions/type';
 const initialState = {}
 
 // Step 2 Reducer: state n action
-export default (state = initialState, action) => {
-    switch(action.type) {
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
         case SAVE_FIRST_STEP:
             return {
                 ...state,
-                firstStepDetails: action.payload
+                saveFirstStep: action.payload
             };
         case SAVE_SECOND_STEP:
             return {
                 ...state,
-                secondStepDetails: action.payload
+                saveSecondStep: action.payload
             };
         default:
-            return state;    
+            return state;
     }
 }
+
+export default reducer;

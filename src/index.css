@@ -385,3 +385,11 @@ code {
 button:focus, .btn:focus {
   box-shadow: none !important;
 }
+
+.input-group input {
+  outline: none;
+}
+
+.input-group .input-group-alert input {
+  outline: none;
+}
