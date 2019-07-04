@@ -1,0 +1,19 @@
+
+.content-banner {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+}
+
+.content-banner-content {
+    position: relative;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.content-banner-content .h1, .content-banner-content .h2, .content-banner-content h1, .content-banner-content h2 {
+    margin-top: 0;
+}
