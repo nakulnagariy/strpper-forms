@@ -3,13 +3,12 @@
 @import url(/public/fonts/GillSans.ttc); */
 
 :root {
-  --theme-color: #ffc0cbd9;
+  
 }
 
 
 .article, .root, body, html {
-  font-family: 'GillSans', cursive;
-  color: white;
+  color: rgb(12, 12, 12);
   font-size: 16px;
   line-height: 24px;
 }
@@ -207,7 +206,7 @@ code {
   box-sizing: border-box;
   position: absolute;
   height: 5px;
-  border-top: 5px solid var(--theme-color);
+  border-top: 5px solid var(--red);
   top: 8px;
   width: 200px;
 }
@@ -217,7 +216,7 @@ code {
 
 
 .collabroteBg {
-  background: var(--theme-color);
+  background: var(--red);
 }
 
 .collabroteHeading p {
@@ -286,7 +285,7 @@ code {
   box-sizing: border-box;
   position: absolute;
   height: 5px;
-  border-top: 5px solid var(--theme-color);
+  border-top: 5px solid var(--red);
   top: 8px;
   width: 280px;
 }
@@ -298,7 +297,7 @@ code {
 
 
 .btn-fancy {
-  background-color: var(--theme-color) !important;
+  background-color: var(--red) !important;
   color: #333;
   border: none;
   border-radius: 0 !important;
@@ -307,7 +306,7 @@ code {
 .btn-fancy-ghost {
   background-color: transparent !important;
   color: #333;
-  border: 2px solid var(--theme-color) !important;
+  border: 2px solid var(--red) !important;
   border-radius: 0 !important;
 }
 
@@ -385,6 +384,7 @@ code {
 button:focus, .btn:focus {
   box-shadow: none !important;
 }
+/* medikit input removing outline */
 
 .input-group input {
   outline: none;
@@ -393,3 +393,5 @@ button:focus, .btn:focus {
 .input-group .input-group-alert input {
   outline: none;
 }
+
+/* medikit input removing outline */

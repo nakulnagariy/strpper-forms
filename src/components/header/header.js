@@ -30,8 +30,11 @@ const Header = (props) => (
         <Link className="py-2 d-none d-md-inline-block" to="/charts">
           Charts
         </Link>
-        <Link className="py-2 d-none d-md-inline-block" to="/details">
+        {/*<Link className="py-2 d-none d-md-inline-block" to="/details">
           Details
+</Link> */}
+        <Link className="py-2 d-none d-md-inline-block" to="/about">
+          About Us
         </Link>
         <Link className="py-2 d-none d-md-inline-block" to="/step1">
           Stepper Form

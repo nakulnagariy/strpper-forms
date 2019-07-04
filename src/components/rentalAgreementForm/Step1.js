@@ -227,7 +227,7 @@ class Step1 extends Component {
                                                 className=""
                                                 disabled={false}
                                                 touched={this.state.errIn_tenantAddress}
-                                                error="Please Tenant's Address With Pincode"
+                                                error="Please enter tenant's address with pincode"
                                                 placeholder="Type address eg: 720 Bourke Street, Docklands VIC 3008"
                                                 maxLength={70}
                                                 handleChange={this.handleMe}
