@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
+import Testing from '../FormComponents/testingComp/testing'
 import { DetailsUtility } from './detailsUtility';
 // import { inherits } from "util";
 
@@ -61,6 +62,7 @@ class Details extends Component {
 			<React.Fragment>
 				<div className="container my-4">
 					<h1>Details</h1>
+					<Testing name="something..." />
 					<p>{this.state.name}</p>
 					<button className="btn btn-primary" onClick={this.addAge}>
 						Age +

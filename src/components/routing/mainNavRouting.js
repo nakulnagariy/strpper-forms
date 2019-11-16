@@ -8,14 +8,14 @@ import UploadYourDoc from '../uploadYourDoc/uploadYourDoc'
 import ContextApp from '../contextApiExample/contextApp'
 import Home from "../home/home";
 import Charts from '../charts-graphs/charts';
-// import Details from "../details/details";
+import Details from "../details/details";
 import Cart from "../cart/cart";
 import Products from "../products/products";
 import About from '../about/about'
 import { ContactUs } from "../contactus/contactus";
 import Udemy from "../udemy/app"
 import FormikForm from "../formikForm/form"
-
+import Testing from "../FormComponents/testingComp/testing"
 import PageNotFound from "../pagenotfound/pageNotFound";
 
 // The Main component renders one of the three provided
@@ -36,11 +36,12 @@ const Main = () => (
       <Route path='/upload-your-doc' component={UploadYourDoc} />
       <Route path='/ContextApp' component={ContextApp} />
       <Route path='/about' component={About} />
-      {/*<Route path="/details" component={Details} />*/}
+      <Route path="/details" component={Details} />
       <Route path="/cart" component={Cart} />
       <Route path="/udemy" component={Udemy} />
       <Route path="/contactus" component={ContactUs} />
       <Route path="/products" component={Products} />
+      <Route path="/testcomp" component={Testing} />
       <Route path="/formik-form" component={() => <FormikForm email="nakul@ss.io" password="1234" />} />
       <Route component={PageNotFound} />
     </Switch>

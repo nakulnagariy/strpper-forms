@@ -48,6 +48,7 @@ class About extends Component {
             { id: 'cta2', icon: iconSingleParent, ctaLink: '/step1/', ctaTitle: 'Contact Us' },
             { id: 'cta3', icon: iconFamily, ctaLink: '/step1/', ctaTitle: 'Our Services' },
             { id: 'cta4', icon: iconChildren, ctaLink: '/step1/', ctaTitle: 'Process Flow' },
+            { id: 'cta5', icon: iconSnowSports, ctaLink: '/404/', ctaTitle: 'Testing CTA' }
         ]
 
         const helpOpt = [
@@ -58,7 +59,7 @@ class About extends Component {
         ]
         return (
             <React.Fragment>
-                <ContentBanner heading="about us" />
+                <ContentBanner heading="About us" />
                 <button className="btn btn-primary" onClick={this.handleModal}>Open Modal</button>
                 <ContentCard opts={cardOpt} />
                 <CTACard ctaMainHeading="Find health insurance that's right for you" opts={ctaOpt} />
@@ -67,12 +68,14 @@ class About extends Component {
                     img="./assets/img/help.png"
                     imgAlt="Person cuddling with kid"
                     helpOpt={helpOpt} />
-                <Modal modalTitle="This is test modal"
+
+                <Modal modalTitle="This is test modal  121212"
                     modalState={this.state.modalState}
                     closeModal={this.handleModal}>
-                    <p>lorem...</p>
+                    <p>lorem hellooo...</p>
                     <button onClick={this.handleModal}>Submit</button>
                 </Modal>
+
             </React.Fragment>
         )
     }
