@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import './SwiggySlider.scss';
-// import SampleTrading from './SampleTrading.json'
+import SampleTrading from './SampleTrading.json'
 import moment from 'moment';
 class SwiggySlider extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props)
         this.state = {
             isLoading: true,
             sliderPosition: 0,
-            data: [{name:"asda"}, {name:"asda"}],   
-            sliderImages: [],         
+            data: [{ name: "asda" }, { name: "asda" }],
+            sliderImages: [],
             error: null
         }
     }
@@ -22,7 +22,7 @@ class SwiggySlider extends Component {
             // wait 3 seconds and show spinnner or something
             // Async Await good documentation https://javascript.info/async-await
             await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-            if(jsonData) {
+            if (jsonData) {
                 this.setState({
                     data: jsonData,
                     isLoading: false,
@@ -45,17 +45,17 @@ class SwiggySlider extends Component {
     }
 
     async fetchSliderContent() {
-        try{
+        try {
             let res = await fetch(`http://127.0.0.1:5500/src/components/FormComponents/swiggySlider/sliderImages.json`);
             let jsonData = await res.json();
             await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-            if(jsonData) {
+            if (jsonData) {
                 this.setState({
                     sliderImages: jsonData,
                     isLoading: false,
                 })
             }
-        }catch(err) {
+        } catch (err) {
             console.log(err);
             this.setState({ isLoading: true })
         }
@@ -67,28 +67,28 @@ class SwiggySlider extends Component {
         this.fetchSliderContent();
     }
 
-    handleLeftSlider = () => {    
+    handleLeftSlider = () => {
         this.setState((nextState, props) => {
             return {
                 sliderPosition: nextState.sliderPosition + 310,
             }
         }, () => {
             let moveLeft = this.state.sliderPosition;
-            this.refs.sliderRefs.style.transform = `translateX(${moveLeft}px)`; 
+            this.refs.sliderRefs.style.transform = `translateX(${moveLeft}px)`;
         })
         console.log(this.state)
     }
 
     handleRightSlider = () => {
         this.setState((nextState, props) => {
-            return{
-                sliderPosition : nextState.sliderPosition - 310
-            }  
-        }, ()=> {
+            return {
+                sliderPosition: nextState.sliderPosition - 310
+            }
+        }, () => {
             let moveRight = this.state.sliderPosition;
             this.refs.sliderRefs.style.transform = `translateX(${moveRight}px)`;
         })
-        
+
     }
 
 
@@ -97,36 +97,36 @@ class SwiggySlider extends Component {
         const { isLoading, sliderPosition, error, data, sliderImages } = this.state;
         return (
             <React.Fragment>
-                { error ? <p>{error.message}</p> : null}
-                { !isLoading ? (
+                {error ? <p>{error.message}</p> : null}
+                {!isLoading ? (
                     <div className="sliderWrapper">
                         <div className="slider-container container">
                             <div className="items-wrapper">
                                 <div className="items" ref="sliderRefs">
                                     {sliderImages.map((item, index) => {
-                                        return(
+                                        return (
                                             <React.Fragment key={`slider_${index}`}>
                                                 <div className="item">
                                                     <a href={`${item.link}`}>
-                                                        <img src={`${item.image}`} alt=""/>
+                                                        <img src={`${item.image}`} alt="" />
                                                     </a>
                                                 </div>
                                             </React.Fragment>
                                         )
-                                    })}             
-                                </div>                                                      
-                            </div>                                           
-                                <div className="sliderBtnWrapper">
-                                    { sliderPosition < 0 && (<button className="sliderBtn btn-sliderLeftBtn" onClick={this.handleLeftSlider}>&lt;</button>) }
-                                    <button className="sliderBtn btn-sliderRightBtn" onClick={this.handleRightSlider}>&gt;</button>
-                                </div>                       
-                        </div> 
+                                    })}
+                                </div>
+                            </div>
+                            <div className="sliderBtnWrapper">
+                                {sliderPosition < 0 && (<button className="sliderBtn btn-sliderLeftBtn" onClick={this.handleLeftSlider}>&lt;</button>)}
+                                <button className="sliderBtn btn-sliderRightBtn" onClick={this.handleRightSlider}>&gt;</button>
+                            </div>
+                        </div>
                     </div>
-                    ) : (
+                ) : (
                         <div className="container text-center">
                             <h3>Loading...</h3>
                         </div>
-                )}
+                    )}
                 <div className="container m-y-4">
                     <table className="table table-bordered table-responsive">
                         <thead>
@@ -148,33 +148,33 @@ class SwiggySlider extends Component {
                                 <th>Last Updated</th>
                             </tr>
                         </thead>
-                        <tbody>                            
-                                {data.map((item, index) => {
-                                    return (
-                                        <tr key={index}>
-                                            <td>{item.id}</td>
-                                            <td>{item.name}</td>
-                                            <td>{item.symbol}</td>
-                                            <td>{item.rank}</td>
-                                            <td>{Number(item.price_usd).toFixed(2)}</td>
-                                            <td>{Number(item.price_btc).toFixed(2)}</td>
-                                            <td>{Number(item._24h_volume_usd).toFixed(2)}</td>
-                                            <td>{Number(item.market_cap_usd).toFixed(2)}</td>
-                                            <td>{Number(item.available_supply).toFixed(2)}</td>
-                                            <td>{Number(item.total_supply).toFixed(2)}</td>
-                                            <td>{Number(item.max_supply).toFixed(2)}</td>
-                                            <td>{`${Number(item.percent_change_1h).toFixed(2)} %`}</td>
-                                            <td>{`${Number(item.percent_change_24h).toFixed(2)} %`}</td>
-                                            <td>{`${Number(item.percent_change_7d).toFixed(2)} %`}</td>
-                                            <td>{moment(item.last_updated, "x").format("DD - MM - YYYY")}</td>
-                                        </tr>
-                                    )                                    
-                                })}
-                                
+                        <tbody>
+                            {data.map((item, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <td>{item.id}</td>
+                                        <td>{item.name}</td>
+                                        <td>{item.symbol}</td>
+                                        <td>{item.rank}</td>
+                                        <td>{Number(item.price_usd).toFixed(2)}</td>
+                                        <td>{Number(item.price_btc).toFixed(2)}</td>
+                                        <td>{Number(item._24h_volume_usd).toFixed(2)}</td>
+                                        <td>{Number(item.market_cap_usd).toFixed(2)}</td>
+                                        <td>{Number(item.available_supply).toFixed(2)}</td>
+                                        <td>{Number(item.total_supply).toFixed(2)}</td>
+                                        <td>{Number(item.max_supply).toFixed(2)}</td>
+                                        <td>{`${Number(item.percent_change_1h).toFixed(2)} %`}</td>
+                                        <td>{`${Number(item.percent_change_24h).toFixed(2)} %`}</td>
+                                        <td>{`${Number(item.percent_change_7d).toFixed(2)} %`}</td>
+                                        <td>{moment(item.last_updated, "x").format("DD - MM - YYYY")}</td>
+                                    </tr>
+                                )
+                            })}
+
                         </tbody>
                     </table>
                 </div>
-            
+
             </React.Fragment>
         );
     }

@@ -51,6 +51,9 @@ const Header = (props) => (
         <Link className="py-2 d-none d-md-inline-block" to="/contactus">
           Contact Us
         </Link>
+        <Link className="py-2 d-none d-md-inline-block" to="/testcomp">
+          Testing
+        </Link>
         <Link className="py-2 d-none d-md-inline-block" to="/formik-form">
           Formik Form
         </Link>

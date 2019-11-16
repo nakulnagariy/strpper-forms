@@ -15,20 +15,20 @@ class MyAccordionSection extends Component {
     }
 
     render() {
-        const { 
-            onClick, 
-            props: {isOpen, label, whichAccordion}, 
+        const {
+            onClick,
+            props: { isOpen, label, whichAccordion },
         } = this;
 
         let activeWrapperClass = "accordion";
-        switch(whichAccordion) {
+        switch (whichAccordion) {
             case 'icon':
                 activeWrapperClass = activeWrapperClass + " accordion-icon";
                 break;
             case 'lg':
                 activeWrapperClass = activeWrapperClass + " accordion-lg";
                 break;
-            default: 
+            default:
                 activeWrapperClass = "accordion";
                 break;
         }
@@ -36,14 +36,14 @@ class MyAccordionSection extends Component {
         return (
             <div className={activeWrapperClass}>
                 <div className="accordion-header">
-                    <button className="collapse-toggle collapsed" 
-                        aria-expanded="true" 
+                    <button className="collapse-toggle collapsed"
+                        aria-expanded="true"
                         onClick={onClick}
                         aria-controls="accordion1b" data-collapse="">
-                            {whichAccordion === 'icon' ? (<span className="icon-wrapper">
-                                <svg className="icon icon-stroke text-success" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><path className="currentColor" vectorEffect="non-scaling-stroke" d="M46 15.5L28.9 45.4l-15.3-8.8"></path></svg>
-                            </span> ) : ''}
-                            <span>{label}</span>
+                        {whichAccordion === 'icon' ? (<span className="icon-wrapper">
+                            <svg className="icon icon-stroke text-success" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><path className="currentColor" vectorEffect="non-scaling-stroke" d="M46 15.5L28.9 45.4l-15.3-8.8"></path></svg>
+                        </span>) : ''}
+                        <span>{label}</span>
                     </button>
                 </div>
                 <div className="accordion-panel" role="tabpanel" aria-hidden={!isOpen}>

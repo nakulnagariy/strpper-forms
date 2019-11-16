@@ -13,7 +13,7 @@ import subDays from "date-fns/subDays"
 class FirstStepWithFormik extends Component {
 
 
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.collapseContainer = React.createRef();
     }
